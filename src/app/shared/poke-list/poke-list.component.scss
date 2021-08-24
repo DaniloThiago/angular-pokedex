@@ -3,7 +3,9 @@ $size20: rem-calc(20);
 :host {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   padding: $size20 0;
+  color: var(--branco);
   .pokemon {
     position: relative;
     display: flex;
@@ -12,27 +14,43 @@ $size20: rem-calc(20);
     height: rem-calc(157 - 40);
     padding: $size20;
     border-radius: rem-calc(10);
-
+    margin-bottom: rem-calc(10);
+    overflow: hidden;
+    background: url('../../../assets/img/pokeball.svg') no-repeat;
+    background-position: rem-calc(140) rem-calc(40);
+    background-size: 55%;
+    > h2 {
+      position: absolute;
+      right: rem-calc(20);
+      font-size: rem-calc(22);
+      font-weight: 900;
+      color: var(--primary-color);
+      opacity: 0.2;
+    }
     &__status {
       h2 {
         font-size: rem-calc(22);
         font-style: italic;
         font-weight: 700;
         margin-bottom: rem-calc(10);
+        text-transform: capitalize;
       }
       ul {
         display: flex;
         flex-direction: column;
 
         li {
-          background-color: var(--cinza);
-          font-size: rem-calc(10);
+          background-color: var(--branco-opacity);
+          font-size: rem-calc(14);
+          font-weight: 400;
           display: flex;
           justify-content: center;
           align-items: center;
           border-radius: rem-calc(50);
           width: rem-calc(60);
           margin-bottom: rem-calc(5);
+          padding: rem-calc(4) 0;
+          text-transform: capitalize;
         }
       }
     }
@@ -50,9 +68,8 @@ $size20: rem-calc(20);
       right: $size20;
       bottom: $size20;
 
-      background: url('../../../assets/img/bg.svg') no-repeat;
       img {
-        width: rem-calc(80);
+        height: rem-calc(90);
       }
     }
   }
