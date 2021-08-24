@@ -1,37 +1,37 @@
 <pkd-poke-header></pkd-poke-header>
 
 <main>
-  <section class="pokemon__names">
-    <h1>{{pokemon[0].name}}</h1>
-    <h2>{{pokemon[1].names[0].name}}</h2>
-  </section>
+  <ng-template [ngIf]="isLoaded">
+    <section class="pokemon__names">
+      <h1>{{pokemon[0].name}}</h1>
+      <h2>{{pokemon[1].names[0].name}}</h2>
+    </section>
 
-  <section class="pokemon__status">
+    <section class="pokemon__status">
 
-    <div class="pokemon__status__image">
-      <img
-        [src]="pokemon[0].sprites.other.dream_world.front_default"
-        [alt]="pokemon[0].name"
-      >
-    </div>
+      <div class="pokemon__status__image">
+        <img [src]="pokemon[0].sprites.other.dream_world.front_default" [alt]="pokemon[0].name">
+      </div>
 
-    <article class="pokemon__status__statistics">
-      <section>
-        <h3>Estatísticas</h3>
+      <article class="pokemon__status__statistics">
+        <section>
+          <h3>Estatísticas</h3>
 
-        <ol>
-          <li *ngFor="let value of pokemon[0].stats">
-            {{value.stat.name}}
-            <strong>
-              {{value.base_stat}}
-            </strong>
-          </li>
-        </ol>
-      </section>
+          <ol>
+            <li *ngFor="let value of pokemon[0].stats">
+              {{value.stat.name}}
+              <strong>
+                {{value.base_stat}}
+              </strong>
+            </li>
+          </ol>
+        </section>
 
-      <a [routerLink]="['']" class="btn btn__secondary" >
-        Voltar
-      </a>
-    </article>
-  </section>
+        <a [routerLink]="['']" class="btn btn__secondary">
+          Voltar
+        </a>
+      </article>
+    </section>
+  </ng-template>
+  <img *ngIf="apiError" src="assets/img/404.svg" alt="Deu erro!" width="100%">
 </main>
